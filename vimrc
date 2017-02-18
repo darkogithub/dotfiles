@@ -13,7 +13,6 @@ execute pathogen#infect()
 " Bundle: airblade/vim-gitgutter
 " Bundle: mattn/emmet-vim
 " Bundle: tpope/vim-endwise
-" Bundle: vim-syntastic/syntastic
 " Bundle: tpope/vim-surround
 " Bundle: tpope/vim-commentary
 " Bundle: vim-airline/vim-airline
@@ -22,6 +21,10 @@ execute pathogen#infect()
 " Bundle: scrooloose/nerdtree
 " Bundle: ctrlpvim/ctrlp.vim
 " Bundle: christoomey/vim-tmux-navigator
+
+"-------------- specify the system clipboard
+" make sure +clipboard feature is in your vim version
+set clipboard=unnamed
 
 "-------------- pathogen related setup
 syntax on
@@ -82,22 +85,12 @@ set colorcolumn=85
 set textwidth=80
 set colorcolumn=+1
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" char use to display the whitespace
+set listchars=tab:»·,trail:·,nbsp:·
 
 "-------------- gitgutter setup
 set updatetime=250
 let g:gitgutter_max_signs = 500
-
-"-------------- syntastic setup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlags()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
 
 "--------------  vim-airline setup
 set laststatus=2
@@ -190,6 +183,18 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 let g:tmux_navigator_save_on_switch=2
 
 "-------------- Key mapping
+" leader mapping
+map <Space> <leader>
+
+" vim quit
+nnoremap <leader>q :q<cr>
+
+" save files
+nnoremap <leader>s :w<cr>
+
+" toggle extra whitespace display
+nnoremap <F2> :set list!<CR>
+
 " clear hlsearch until next search
 nnoremap <F3> :noh<cr>
 
@@ -246,7 +251,4 @@ augroup vimrcEx
 
 augroup END
 
-"-------------- ruby specific setup
-"let g:syntastic_ruby_checkers=['mri']
-"let g:syntastic_enable_highlighting=0
 
