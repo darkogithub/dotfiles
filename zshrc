@@ -3,9 +3,6 @@
 alias vim='mvim -v'
 alias ctags="`brew --prefix`/bin/ctags"
 
-ARM_TOOLCHAIN_PATH=/usr/local/gcc-arm-none-eabi-5_4-2016q3/bin
-export PATH=$ARM_TOOLCHAIN_PATH:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/darko/.oh-my-zsh
 
