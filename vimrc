@@ -60,9 +60,9 @@ set undoreload=10000      " number of lines to save for undo
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 
-" soft tabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+" soft tabs, 4 spaces
+set tabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 
@@ -99,8 +99,9 @@ let g:airline_powerline_fonts=1
 set ttimeoutlen=20
 
 if !exists('g:airline_symbols')
-  let g:airline_symbols={}
+    let g:airline_symbols={}
 endif
+
 let g:airline_symbols.space="\ua0"
 
 " setup look like powerline
@@ -115,9 +116,9 @@ set background=dark
 colorscheme solarized
 
 if has('gui_running')
-  set background=light
+    set background=light
 else
-  set background=dark
+    set background=dark
 endif
 
 " for terminal user
@@ -131,14 +132,16 @@ let g:solarized_visibility="high"
 " will insert at beginning of line,
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
+
 function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
 endfunction
+
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
@@ -160,10 +163,10 @@ let g:ctrlp_switch_buffer='et'
 " exclude files and directories that we don't want in ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip    "MacOSX/Linux
 let g:ctrlp_custom_ignore={
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
 
 " ignore files in .gitignore
 let g:ctrlp_user_command=['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -230,21 +233,20 @@ inoremap <Down> <nop>
 
 "-------------- autogroup definition to group 'autocmd'
 augroup vimrcEx
-  autocmd!
+    autocmd!
 
-  " for all text files set 'textwidth' to 78 characters
-  autocmd FileType text setlocal textwidth=78
+    " for all text files set 'textwidth' to 78 characters
+    autocmd FileType text setlocal textwidth=78
 
-  " set syntax highlighting for specific filetypes
-  autocmd BufRead,BufNewFile Apprailsals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
+    " set syntax highlighting for specific filetypes
+    autocmd BufRead,BufNewFile Apprailsals set filetype=ruby
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-  " enable spellchecking for markdown
-  autocmd FileType markdown setlocal spell
+    " enable spellchecking for markdown
+    autocmd FileType markdown setlocal spell
 
-  " automatically wrap at 80 characters for markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
+    " automatically wrap at 80 characters for markdown
+    autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 augroup END
 
 
