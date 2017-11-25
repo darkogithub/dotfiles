@@ -8,8 +8,6 @@ execute pathogen#infect()
 " Bundle: tpope/vim-sensible
 " Bundle: tpope/vim-fugitive
 " Bundle: tpope/vim-dispatch
-" Bundle: tpope/vim-rails
-" Bundle: tpope/vim-bundler
 " Bundle: airblade/vim-gitgutter
 " Bundle: mattn/emmet-vim
 " Bundle: tpope/vim-endwise
