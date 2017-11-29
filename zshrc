@@ -1,9 +1,26 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-alias vim='gvim -v'
+if [[ `uname` == 'Linux' ]]
+then
+    alias vim='gvim -v'
+fi
+
+if [[ `uname` == 'Darwin' ]]
+then
+    alias vim='mvim -v'
+    alias ctags="`brew --prefix`/bin/ctags"
+fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/darko/.oh-my-zsh
+if [[ `uname` == 'Linux' ]]
+then
+    export ZSH=/home/$USER/.oh-my-zsh
+fi
+
+if [[ `uname` == 'Darwin' ]]
+then
+    export ZSH=/Users/$USER/.oh-my-zsh
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
