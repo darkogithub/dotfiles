@@ -5,14 +5,7 @@ execute pathogen#infect()
 
 "--------------  Bundles:
 "
-" Bundle: tpope/vim-sensible
-" Bundle: tpope/vim-fugitive
-" Bundle: tpope/vim-dispatch
 " Bundle: airblade/vim-gitgutter
-" Bundle: mattn/emmet-vim
-" Bundle: tpope/vim-endwise
-" Bundle: tpope/vim-surround
-" Bundle: tpope/vim-commentary
 " Bundle: vim-airline/vim-airline
 " Bundle: vim-airline/vim-airline-themes
 " Bundle: altercation/vim-color-solarized
